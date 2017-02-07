@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.remarkablesoft.mission.repository.UserSQL">
+	
+	<insert id="userAdd" parameterType="com.remarkablesoft.mission.user.vo.UserInfo">
+		INSERT INTO USER (
+			user_id
+			,user_pw
+			,user_name
+			,user_birthday
+			,user_resi_num
+			,user_email
+			,user_phone_one
+			,user_phone_two
+			,user_phone_thr
+			,user_address
+		)
+		VALUES (
+			#{userId}
+			,#{userPw}
+			,#{userName}
+			,#{userBirthday}
+			,#{userResiNum}
+			,#{userEmail}
+			,#{userPhoneOne}
+			,#{userPhoneTwo}
+			,#{userPhoneThr}
+			,#{userAddress}
+		)
+	</insert>
+	
+	<select id="userView" parameterType="com.remarkablesoft.mission.user.vo.UserInfo" resultType="com.remarkablesoft.mission.user.vo.UserInfo">
+		SELECT 
+			*
+		FROM USER
+		WHERE
+			user_id = #{userId}
+	</select>
+	
+	<select id="checkUser" parameterType="com.remarkablesoft.mission.user.vo.UserInfo" resultType="com.remarkablesoft.mission.user.vo.UserInfo">
+		SELECT
+			*
+		FROM USER
+		WHERE
+			user_id = #{userId} AND user_pw = #{userPw}
+	</select>
+</mapper>

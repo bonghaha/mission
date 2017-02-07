@@ -7,21 +7,15 @@ import org.springframework.stereotype.Repository;
 import com.remarkablesoft.mission.user.vo.UserInfo;
 
 @Repository
-public class UserDAO {
-	
+public class LoginDAO {
+
 	private final String NS = "com.remarkablesoft.mission.repository.UserSQL";
 
 	@Autowired
 	private SqlSessionTemplate sqlSession;
 	
-	// 1.2 회원 등록 실행
-	public void userAdd( UserInfo userInfo ) {
-		System.out.println("/user_add.json DAO 실행!");
-		sqlSession.insert( NS + ".userAdd", userInfo );
-	}	
-
-	// 2. 회원 상세 보기
-	public UserInfo userView(UserInfo userInfo) {
-		return sqlSession.selectOne( NS + ".userView", userInfo );
+	public UserInfo checkUser( UserInfo userInfo ) {
+		return sqlSession.selectOne( NS + ".checkUser", userInfo );
 	}
+	
 }
