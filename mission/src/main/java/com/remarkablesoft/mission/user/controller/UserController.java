@@ -35,10 +35,10 @@ public class UserController {
 	public ModelAndView userView( @RequestParam( value = ("userId"), required = false ) String userId,
 			UserInfo userInfo){
 		System.out.println("/user_view 컨트롤러 실행!");
-		System.out.println( "userId : " + userId );
 		userInfo.setUserId(userId);
 		userService.userView(userInfo);
 		
+		System.out.println();
 		ModelAndView modelAndView = new ModelAndView( "user/user_view", userId, userInfo );
 		return modelAndView;
 	}
