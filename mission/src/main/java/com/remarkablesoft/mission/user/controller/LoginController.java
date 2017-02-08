@@ -26,7 +26,7 @@ public class LoginController {
 	}
 	
 	// 1.2 login 액션
-	@RequestMapping( value = "/login.json", method = RequestMethod.POST )
+	@RequestMapping( value = "/login.action", method = RequestMethod.POST )
 	public @ResponseBody UserInfo login(HttpServletRequest request, HttpServletResponse response, UserInfo userInfo ) {
 		HttpSession session = request.getSession();
 		

@@ -125,6 +125,20 @@ var userAdd = {
 		
 		// 확인버튼 클릭 시
 		$( "#btnUserAdd" ).click( function() {
+			
+			$( "#userAddForm" ).attr( "action", "/user_add.action" );
+			$( "#userAddForm" ).attr( "method", "POST" );
+			$( "#userAddForm" ).submit();
+			
+			/*
+			// 회원 등록 됐을 경우
+			alert("가입 되었습니다.");
+			location.href = "/login";
+			
+			// 회원 등록 실패 했을 경우
+			*/
+			
+/*			
 			var userId = $( "#userId" );
 			var userPw = $( "#userPw" );
 			var userPwForCheck = $( "#userPwForCheck" );
@@ -163,10 +177,17 @@ var userAdd = {
 					alert("가입 실패");
 				}
 			});
+*/			
+			
 		});
 		
 		$( "#btnCancel" ).click( function() {
-			location.href = "/login";
+			
+//			location.href = "/login";
+			$( "#userAddForm" ).attr( "action", "/login" );
+			$( "#userAddForm" ).attr( "method", "GET" );
+			$( "#userAddForm" ).submit();
+			
 		});
 	},
 	

@@ -23,20 +23,20 @@ public class UserController {
 	
 	// 1.1 회원등록 폼 요청
 	@RequestMapping( value = "/user_add", method = RequestMethod.GET )
-	public String userAdd( ){
+	public String userAdd( ) {
 		return "user/user_add";
 	}
 	
 	// 1.2 회원 등록 액션
-	@RequestMapping( value = "/user_add.json", method = RequestMethod.POST )
-	public @ResponseBody HashMap<String, String> userAdd( UserInfo userInfo ){
+	@RequestMapping( value = "/user_add.action", method = RequestMethod.POST )
+	public String userAdd( UserInfo userInfo ) {
 		userService.userAdd( userInfo );
 		
 		// 서버에서 아무것도 응답하지 않기 때문에 404 not found -> Response 객체에 응답값을 설정해주면 404에러 발생X
-		HashMap<String, String> map = new HashMap<String, String>();
-	    map.put("code","1");
-	    map.put("msg", "등록하였습니다.");
-	    return map;
+//		HashMap<String, String> map = new HashMap<String, String>();
+//	    map.put("code","1");
+//	    map.put("msg", "등록하였습니다.");
+	    return "redirect:/login";
 	}
 	
 	// 2.1 회원상세정보 보기
@@ -53,7 +53,7 @@ public class UserController {
 	
 	// 2.2 회원상세정보 가져오기
 	@RequestMapping( value = "/user_view.json", method = RequestMethod.POST )
-	public @ResponseBody UserInfo userView( UserInfo userInfo ){
+	public @ResponseBody UserInfo userView( UserInfo userInfo ) {
 		return userService.userView(userInfo);
 	}
 }

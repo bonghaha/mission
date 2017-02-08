@@ -1,8 +1,6 @@
 
 var userView = {
 		
-	USER_ID : "userId",
-		
 	init : function() {
 		
 		userView.bind();
@@ -11,14 +9,16 @@ var userView = {
 	},
 	
 	bind : function() {
+		
 		$( "#btnLogout" ).click( function() {
-			location.href = "/logout";
+			$( "#logoutForm" ).submit();
 		});
+		
 	},
 	
 	view : function() {
 		
-		var userId = $.urlParam(userView.USER_ID);
+		var userId = $.urlParam( "userId" );
 		
 		var data = {
 			userId : userId
@@ -40,15 +40,15 @@ var userView = {
 	},
 	
 	display : function( data ) {
-		$( "[data-userId]" ).text( data.userId );
-		$( "[data-userName]" ).text( data.userName );
-		$( "[data-userBirthday]" ).text( data.userBirthday );
-		$( "[data-userResiNum]" ).text( data.userResiNum );
-		$( "[data-userEmail]" ).text( data.userEmail );
-		$( "[data-userPhoneOne]" ).text( data.userPhoneOne );
-		$( "[data-userPhoneTwo]" ).text( data.userPhoneTwo );
-		$( "[data-userPhoneThr]" ).text( data.userPhoneThr );
-		$( "[data-userAddress]" ).text( data.userAddress );
+		$( "#userId" ).text( data.userId );
+		$( "#userName" ).text( data.userName );
+		$( "#userBirthday" ).text( data.userBirthday );
+		$( "#userResiNum" ).text( data.userResiNum );
+		$( "#userEmail" ).text( data.userEmail );
+		$( "#userPhoneOne" ).text( data.userPhoneOne );
+		$( "#userPhoneTwo" ).text( data.userPhoneTwo );
+		$( "#userPhoneThr" ).text( data.userPhoneThr );
+		$( "#userAddress" ).text( data.userAddress );
 	}
 }
 
