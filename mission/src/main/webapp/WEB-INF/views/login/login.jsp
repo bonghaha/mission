@@ -23,7 +23,7 @@ URL : login/login
 			</tr>
 			<tr>
 				<td>비밀번호</td>
-				<td><input type="text" id="loginPw"/></td>
+				<td><input type="password" id="loginPw"/></td>
 			</tr>
 		</table>
 	</div>

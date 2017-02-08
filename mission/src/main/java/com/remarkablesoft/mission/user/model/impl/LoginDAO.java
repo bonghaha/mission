@@ -17,5 +17,4 @@ public class LoginDAO {
 	public UserInfo checkUser( UserInfo userInfo ) {
 		return sqlSession.selectOne( NS + ".checkUser", userInfo );
 	}
-	
 }

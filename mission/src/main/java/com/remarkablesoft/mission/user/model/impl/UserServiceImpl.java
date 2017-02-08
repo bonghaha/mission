@@ -14,7 +14,6 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public void userAdd(UserInfo userInfo) {
-		System.out.println("/user_add.json 서비스 실행!");
 		userDAO.userAdd( userInfo );
 	}
 	
@@ -22,5 +21,4 @@ public class UserServiceImpl implements UserService {
 	public UserInfo userView( UserInfo userInfo ) {
 		return userDAO.userView( userInfo );
 	}
-
 }

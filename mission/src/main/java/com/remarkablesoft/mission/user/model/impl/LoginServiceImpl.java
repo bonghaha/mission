@@ -12,11 +12,9 @@ public class LoginServiceImpl implements LoginService {
 	@Autowired
 	private LoginDAO loginDAO;
 	
-	
 	// 로그인 값 확인
 	@Override
 	public UserInfo checkUser( UserInfo userInfo) {
 		return loginDAO.checkUser( userInfo );
 	}
-
 }

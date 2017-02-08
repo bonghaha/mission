@@ -2,6 +2,8 @@
 
 var logout = {
 		
+	init : function() {
 		
+	}
 		
 }

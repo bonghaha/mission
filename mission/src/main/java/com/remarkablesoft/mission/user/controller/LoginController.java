@@ -22,7 +22,6 @@ public class LoginController {
 	// 1.1 login 폼으로 가기
 	@RequestMapping( value = "/login", method = RequestMethod.GET )
 	public String login() {
-		System.out.println("/login(GET) 컨트롤러 실행!");
 		return "login/login";
 	}
 	
@@ -31,21 +30,27 @@ public class LoginController {
 	public @ResponseBody UserInfo login(HttpServletRequest request, HttpServletResponse response, UserInfo userInfo ) {
 		HttpSession session = request.getSession();
 		
-		String loginId = userInfo.getUserId();
+		UserInfo loginUserInfo = loginService.checkUser( userInfo ); 
 		
-		userInfo = loginService.checkUser( userInfo );
-		if( userInfo == null ) {
+		// 로그인 정보가 없다면
+		if(  loginUserInfo == null ) {
 			return null;
 			
+		// userLogin값 체크 완료
 		} else {
+			String loginId = userInfo.getUserId();
 			session.setAttribute( "userId" , loginId);
-			return userInfo;
+			return loginUserInfo;
 		}
 	}
 	
 	// 1. logout
 	@RequestMapping( value = "/logout", method = RequestMethod.GET )
-	public String logout() {
-		return "logout/logout";
+	public String logout( HttpServletRequest request, HttpServletResponse response ) {
+		HttpSession session = request.getSession();
+		if( session.getAttribute( "userId" ) != null ) {
+			session.invalidate();
+		}
+		return "redirect:/login";
 	}
 }

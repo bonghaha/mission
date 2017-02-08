@@ -1,4 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%
+/*
+Controller : com.remarkablesoft.mission.user.controller.UserController
+URL : user/user_view
+*/
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -47,7 +53,7 @@
 						<span>휴대폰 번호</span>
 					</td>
 					<td>
-						<span data-userPhoneOne></span><span>-</span><span data-userPhoneTwo></span><span>-</span><span data-userPhoneThr></span>
+						<span data-userPhoneOne></span><span> - </span><span data-userPhoneTwo></span><span> - </span><span data-userPhoneThr></span>
 					</td>
 				</tr>
 				<tr>
@@ -60,6 +66,9 @@
 				</tr>
 			</tbody>
 		</table>
+	</div>
+	<div>
+		<span><input type="button" id="btnLogout" value="logout"></span>
 	</div>
 	
 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>

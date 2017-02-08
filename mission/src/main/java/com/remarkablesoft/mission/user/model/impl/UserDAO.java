@@ -16,9 +16,8 @@ public class UserDAO {
 	
 	// 1.2 회원 등록 실행
 	public void userAdd( UserInfo userInfo ) {
-		System.out.println("/user_add.json DAO 실행!");
 		sqlSession.insert( NS + ".userAdd", userInfo );
-	}	
+	}
 
 	// 2. 회원 상세 보기
 	public UserInfo userView(UserInfo userInfo) {

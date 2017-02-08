@@ -11,46 +11,45 @@ var userView = {
 	},
 	
 	bind : function() {
-		
+		$( "#btnLogout" ).click( function() {
+			location.href = "/logout";
+		});
 	},
 	
 	view : function() {
+		
 		var userId = $.urlParam(userView.USER_ID);
 		
 		var data = {
-			userId : userId	
+			userId : userId
 		};
 		
-		console.log();
-		userView.display();
-		// 회원 상세정보 보여주기
-//		$.ajax({
-//			type : "POST",
-//			url : "/user_view.json",
-//			data : data,
-//			dataType : "json",
-//			success : function( data ) {
-//				userView.display( data );
-//			},
-//			complete : function( data ) {
-//				console.log( "userId : " + data.userId );
-//				console.log( "userName : " + data.userName );
-//			},
-//			error : function( data ) {
-////				console.log( "userId : " + data.userId );
-////				console.log( "userName : " + data.userName );
-//				userView.display( data ); // ajax에러 확인 후 수정
-//			}
-//		});
+		// 회원 상세정보 가져오기
+		$.ajax({
+			type : "POST",
+			url : "/user_view.json",
+			data : data,
+			success : function( data ) {
+				userView.display( data );
+			},
+			error : function( xhr,status,error ) {
+				
+			}
+		});
 		
 	},
 	
 	display : function( data ) {
 		$( "[data-userId]" ).text( data.userId );
 		$( "[data-userName]" ).text( data.userName );
+		$( "[data-userBirthday]" ).text( data.userBirthday );
+		$( "[data-userResiNum]" ).text( data.userResiNum );
+		$( "[data-userEmail]" ).text( data.userEmail );
+		$( "[data-userPhoneOne]" ).text( data.userPhoneOne );
+		$( "[data-userPhoneTwo]" ).text( data.userPhoneTwo );
+		$( "[data-userPhoneThr]" ).text( data.userPhoneThr );
+		$( "[data-userAddress]" ).text( data.userAddress );
 	}
-	
-	
 }
 
 // url의 특정 key의 값 가져오기

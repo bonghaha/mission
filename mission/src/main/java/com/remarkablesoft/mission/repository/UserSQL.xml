@@ -31,7 +31,15 @@
 	
 	<select id="userView" parameterType="com.remarkablesoft.mission.user.vo.UserInfo" resultType="com.remarkablesoft.mission.user.vo.UserInfo">
 		SELECT 
-			*
+			user_id			AS userId
+			,user_name		AS userName
+			,user_birthday	AS userBirthday
+			,user_resi_num	AS userResiNum
+			,user_email		AS userEmail
+			,user_phone_one	AS userPhoneOne
+			,user_phone_two	AS userPhoneTwo
+			,user_phone_thr	AS userPhoneThr
+			,user_address	AS userAddress
 		FROM USER
 		WHERE
 			user_id = #{userId}
@@ -39,7 +47,7 @@
 	
 	<select id="checkUser" parameterType="com.remarkablesoft.mission.user.vo.UserInfo" resultType="com.remarkablesoft.mission.user.vo.UserInfo">
 		SELECT
-			*
+			user_id	AS userId
 		FROM USER
 		WHERE
 			user_id = #{userId} AND user_pw = #{userPw}

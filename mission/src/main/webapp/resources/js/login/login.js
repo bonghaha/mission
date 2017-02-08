@@ -5,7 +5,9 @@ var login = {
 	URL_USERID : "userId",
 		
 	init : function() {
+		
 		login.bind();
+		
 	},
 	
 	bind : function() {
@@ -13,26 +15,30 @@ var login = {
 			var loginId = $( "#loginId" ).val();
 			var loginPw = $( "#loginPw" ).val();
 			
-			var data = {
-					userId : loginId,
-					userPw : loginPw
-			}
-			
 			$.ajax({
 				type : "POST",
 				url : "/login.json",
-				data : data,
-				dataType : "json",
-				success : function( data ) {
-					alert("로그인 성공");
-					location.href = "/user_view?" + login.URL_USERID + "=" + data.userId;
+				data : {
+					userId : loginId,
+					userPw : loginPw
 				},
-				error : function( e ) {
-					alert("로그인 실패");
-					location.href = "/user_view?" + login.URL_USERID + "=" + data.userId; // ajax에러 수정 후 경로 바꾸기
+				success : function( loginUserInfo ) {
+					console.log( "loginUserInfo : " + loginUserInfo );
+					if( loginUserInfo != "" ) {
+						console.log( "userId : " + loginUserInfo.userId );
+						location.href = "/user_view?" + login.URL_USERID + "=" + loginUserInfo.userId;
+					} else {
+						alert("아이디나 비밀번호를 확인 후 다시 로그인 해 주세요.");
+					}
+				},
+				error : function( xhr,status,error ) {
+					alert("로그인 에러");
 				}
 			});
 		});
-	}
 		
+		$( "#btnGoUserAdd" ).click( function() {
+			location.href = "/user_add";
+		});
+	}
 }
