@@ -12,6 +12,8 @@ var userAdd = {
 	
 	bind : function() {
 		
+		var flag = false;
+		
 		// 유효성 검사
 		var re_userId = /^[a-zA-Z0-9_-]{3,16}$/;							// 아이디 검사식
 		var re_userPw = /^[a-z0-9_-]{6,18}$/; 								// 비밀번호 검사식
@@ -19,10 +21,9 @@ var userAdd = {
 		var re_userBirthday = /^[0-9]{2}[01][0-9][0-3][0-9]$/; 				// 생년월일 검사식
 		var re_userResiNum = /^[1-4][0-9]{6}$/; 							// 주민번호뒷자리 검사식
 		var re_userEmail = /^([\w\.-]+)@([a-z\d\.-]+)\.([a-z\.]{2,6})$/; 	// 이메일 검사식
-		var re_userPhoneOne = /^[0-1]{3}$/; 								// 폰번호 앞
+		var re_userPhoneOne = /^[0][1][0]$/; 								// 폰번호 앞
 		var re_userPhoneTwo = /^[0-9]{4}$/; 								// 폰번호 가운데
 		var re_userPhoneThr = /^[0-9]{4}$/; 								// 폰번호 뒤
-//		var re_userAddress = /^[0-9]{4}$/; 									// 주소
 		
 		var userId = $( "#userId" );
 		var userPw = $( "#userPw" );
@@ -166,8 +167,6 @@ var userAdd = {
 				s.text( "" );
 			}else if( userPhoneOne.val().length < 3 ) { 					// 입력 값이 3보다 작을 때
 				s.text( "너무 짧아요" );
-			}else if( userPhoneOne.val().length > 3 ) { 					// 입력 값이 3보다 클 때
-				s.text( "너무 길어요" );
 			}else if( re_userPhoneOne.test( userPhoneOne.val()) != true ){
 				s.text( "형식에 맞게 입력해주세요" );
 			}else{
@@ -183,8 +182,6 @@ var userAdd = {
 				s.text( "" );
 			}else if( userPhoneTwo.val().length < 4 ) { 					// 입력 값이 4보다 작을 때
 				s.text( "너무 짧아요" );
-			}else if( userPhoneTwo.val().length > 4 ) { 					// 입력 값이 4보다 클 때
-				s.text( "너무 길어요" );
 			}else if( re_userPhoneTwo.test( userPhoneTwo.val()) != true ){
 				s.text( "형식에 맞게 입력해주세요" );
 			}else{
@@ -200,8 +197,6 @@ var userAdd = {
 				s.text( "" );
 			}else if( userPhoneThr.val().length < 4 ) { 					// 입력 값이 4보다 작을 때
 				s.text( "너무 짧아요" );
-			}else if( userPhoneThr.val().length > 4 ) { 					// 입력 값이 4보다 클 때
-				s.text( "너무 길어요" );
 			}else if( re_userPhoneThr.test( userPhoneThr.val()) != true ){
 				s.text( "형식에 맞게 입력해주세요" );
 			}else{
@@ -224,6 +219,7 @@ var userAdd = {
 					var s = $( "#userIdHelper" ).next( "strong" );
 					if( $.trim( data.result ) == "0" && $.trim( data.userId ) != "" ) {
 						s.text( "사용 가능한 아이디 입니다." );
+						flag = true;
 					} else if( $.trim( data.userId ) == "" ) {
 						s.text( "아이디를 입력하세요." );
 					} else {

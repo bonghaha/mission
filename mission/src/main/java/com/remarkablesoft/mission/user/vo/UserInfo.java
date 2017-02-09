@@ -5,8 +5,8 @@ public class UserInfo {
 	private String userId = "";			// 아이디
 	private String userPw = "";			// 비밀번호
 	private String userName = "";		// 이름
-	private int userBirthday = 0;		// 생년월일			
-	private int userResiNum = 0;		// 주민번호뒷자리
+	private String userBirthday = "";	// 생년월일			
+	private String userResiNum = "";	// 주민번호뒷자리
 	private String userEmail = "";		// 이메일
 	private String userPhoneOne = "";	// 폰번호 앞
 	private String userPhoneTwo = "";	// 폰번호 가운데
@@ -45,19 +45,19 @@ public class UserInfo {
 		this.userName = userName;
 	}
 	
-	public int getUserBirthday() {
+	public String getUserBirthday() {
 		return userBirthday;
 	}
 	
-	public void setUserBirthday(int userBirthday) {
+	public void setUserBirthday(String userBirthday) {
 		this.userBirthday = userBirthday;
 	}
 	
-	public int getUserResiNum() {
+	public String getUserResiNum() {
 		return userResiNum;
 	}
 	
-	public void setUserResiNum(int userResiNum) {
+	public void setUserResiNum(String userResiNum) {
 		this.userResiNum = userResiNum;
 	}
 	

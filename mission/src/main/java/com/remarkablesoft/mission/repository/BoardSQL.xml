@@ -1,1 +1,62 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.remarkablesoft.mission.repository.BoardSQL">
+	
+	<!-- 1.2 게시글 등록 액션 -->
+	<insert id="articleAdd">
+		INSERT INTO ARTICLE (
+			article_code
+			,user_code
+			,article_no
+			,article_title
+			,article_content
+			,article_credate
+		)
+		VALUES (
+			#{articleCode}
+			,#{userCode}
+			,#{articleNo}
+			,#{articleTitle}
+			,#{articleContent}
+			,NOW()
+		)
+	</insert>
+	
+	<!-- 2.1 글 리스트 보기 -->
+	<select id="articleList" parameterType="java.util.Map" resultType="com.remarkablesoft.mission.board.vo.ArticleInfo">
+		SELECT
+			article_code		AS articleCode
+			,user_code			AS userCode
+			,article_no			AS articleNo
+			,article_title		AS articleTitle
+			,article_content	AS articleContent
+		FROM ARTICLE
+		WHERE 1=1
+		<if test="searchWord != null">
+			<choose>
+				<when test="searchType.equals('article_title')">
+					article_title LIKE CONCAT('%', #{searchWord}, '%')
+				</when>
+				<when test="searchType.equals('article_content')">
+		 			article_content LIKE CONCAT('%', #{searchWord}, '%')
+				</when>
+			</choose>
+		</if>
+		ORDER BY article_credate DESC
+	</select>
+	
+	<!-- 2.2 글 상세보기, 글 수정 폼으로 이동할때 정보 불러오기 -->
+	<select id="articleView">
+		SELECT
+			( SELECT user_id FROM USER WHERE user_code = ARTICLE.user_code )	AS userId
+			,article_no															AS articleNo
+			,article_title														AS articleTitle
+			,article_content													AS articleContent
+			,article_credate													AS articleCredate
+			,article_moddate													AS articleModdate
+		FROM ARTICLE
+		WHERE
+			article_code = #{articleCode}
+	</select>
+	
+</mapper>

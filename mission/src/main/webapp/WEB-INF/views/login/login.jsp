@@ -11,7 +11,7 @@ URL : login/login
 <title>Login</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 <style>
-	
+	.info{ width : 150px; }
 </style>
 </head>
 <body>
@@ -21,14 +21,14 @@ URL : login/login
 		</h3>
 		<div>
 			<div>
-				<table>
+				<table class="table">
 					<tr>
-						<td>아이디</td>
-						<td><input type="text" id="loginId"/></td>
+						<td class="info">아이디</td>
+						<td class="active"><input type="text" id="loginId"/></td>
 					</tr>
 					<tr>
-						<td>비밀번호</td>
-						<td><input type="password" id="loginPw"/></td>
+						<td class="info">비밀번호</td>
+						<td class="active"><input type="password" id="loginPw"/></td>
 					</tr>
 				</table>
 			</div>

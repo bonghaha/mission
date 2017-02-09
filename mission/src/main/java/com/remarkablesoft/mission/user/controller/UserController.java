@@ -23,7 +23,7 @@ public class UserController {
 	
 	// 1.1 회원등록 폼 요청
 	@RequestMapping( value = "/user_add", method = RequestMethod.GET )
-	public String userAdd( ) {
+	public String userAdd() {
 		return "user/user_add";
 	}
 	
