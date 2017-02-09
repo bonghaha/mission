@@ -1,22 +1,31 @@
 package com.remarkablesoft.mission.user.vo;
 
 public class UserInfo {
+	private String userCode = "";		// 유저코드(주키)
 	private String userId = "";			// 아이디
 	private String userPw = "";			// 비밀번호
 	private String userName = "";		// 이름
 	private int userBirthday = 0;		// 생년월일			
 	private int userResiNum = 0;		// 주민번호뒷자리
 	private String userEmail = "";		// 이메일
-	private int userPhoneOne = 0;		// 폰번호 앞
-	private int userPhoneTwo = 0;		// 폰번호 가운데
-	private int userPhoneThr = 0;		// 폰번호 뒤 
+	private String userPhoneOne = "";	// 폰번호 앞
+	private String userPhoneTwo = "";	// 폰번호 가운데
+	private String userPhoneThr = "";	// 폰번호 뒤 
 	private String userAddress = "";	// 주소
 	
+	public String getUserCode() {
+		return userCode;
+	}
+
+	public void setUserCode(String userCode) {
+		this.userCode = userCode;
+	}
+
 	public String getUserId() {
 		return userId;
 	}
 	
-	public void setUserId( String userId ) {
+	public void setUserId(String userId) {
 		this.userId = userId;
 	}
 	
@@ -24,7 +33,7 @@ public class UserInfo {
 		return userPw;
 	}
 	
-	public void setUserPw( String userPw ) {
+	public void setUserPw(String userPw) {
 		this.userPw = userPw;
 	}
 	
@@ -32,7 +41,7 @@ public class UserInfo {
 		return userName;
 	}
 	
-	public void setUserName( String userName ) {
+	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 	
@@ -40,7 +49,7 @@ public class UserInfo {
 		return userBirthday;
 	}
 	
-	public void setUserBirthday( int userBirthday ) {
+	public void setUserBirthday(int userBirthday) {
 		this.userBirthday = userBirthday;
 	}
 	
@@ -48,7 +57,7 @@ public class UserInfo {
 		return userResiNum;
 	}
 	
-	public void setUserResiNum( int userResiNum ) {
+	public void setUserResiNum(int userResiNum) {
 		this.userResiNum = userResiNum;
 	}
 	
@@ -56,31 +65,31 @@ public class UserInfo {
 		return userEmail;
 	}
 	
-	public void setUserEmail( String userEmail ) {
+	public void setUserEmail(String userEmail) {
 		this.userEmail = userEmail;
 	}
 	
-	public int getUserPhoneOne() {
+	public String getUserPhoneOne() {
 		return userPhoneOne;
 	}
 	
-	public void setUserPhoneOne( int userPhoneOne ) {
+	public void setUserPhoneOne(String userPhoneOne) {
 		this.userPhoneOne = userPhoneOne;
 	}
 	
-	public int getUserPhoneTwo() {
+	public String getUserPhoneTwo() {
 		return userPhoneTwo;
 	}
 	
-	public void setUserPhoneTwo( int userPhoneTwo ) {
+	public void setUserPhoneTwo(String userPhoneTwo) {
 		this.userPhoneTwo = userPhoneTwo;
 	}
 	
-	public int getUserPhoneThr() {
+	public String getUserPhoneThr() {
 		return userPhoneThr;
 	}
 	
-	public void setUserPhoneThr( int userPhoneThr ) {
+	public void setUserPhoneThr(String userPhoneThr) {
 		this.userPhoneThr = userPhoneThr;
 	}
 	
@@ -88,7 +97,8 @@ public class UserInfo {
 		return userAddress;
 	}
 	
-	public void setUserAddress( String userAddress ) {
+	public void setUserAddress(String userAddress) {
 		this.userAddress = userAddress;
 	}
+
 }

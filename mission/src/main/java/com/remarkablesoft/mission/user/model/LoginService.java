@@ -7,5 +7,4 @@ public interface LoginService {
 	// login
 	UserInfo checkUser( UserInfo userInfo );
 	
-	// logout
 }

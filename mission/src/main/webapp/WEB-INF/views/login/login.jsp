@@ -9,33 +9,37 @@ URL : login/login
 <html>
 <head>
 <title>Login</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+<style>
+	
+</style>
 </head>
 <body>
-	<h3>
-		Login  
-	</h3>
 	<div>
-		<form id="loginForm">
+		<h3>
+			Login  
+		</h3>
+		<div>
 			<div>
 				<table>
 					<tr>
 						<td>아이디</td>
-						<td><input type="text" id="loginId" name="loginId"/></td>
+						<td><input type="text" id="loginId"/></td>
 					</tr>
 					<tr>
 						<td>비밀번호</td>
-						<td><input type="password" id="loginPw" name="loginPw"/></td>
+						<td><input type="password" id="loginPw"/></td>
 					</tr>
 				</table>
 			</div>
 			<div>
-				<span><input type="button" id="btnLogin" value="로그인"></span>
+				<span><input type="button" id="btnLogin" class="btn btn-primary btn-xs" value="로그인"></span>
 			</div>
 			<hr/>
 			<div>
-				<span>아직 회원이 아니시라면 </span><span><input type="button" id="btnGoUserAdd" value="회원가입"></span>
+				<span>아직 회원이 아니시라면 </span><span><input type="button" id="btnGoUserAdd" class="btn btn-primary btn-xs" value="회원가입"></span>
 			</div>
-		</form>
+		</div>
 	</div>
 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
 <script type="text/javascript" src="/resources/js/login/login.js"></script>

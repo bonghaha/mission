@@ -9,19 +9,21 @@ URL : user/user_add
 <html>
 <head>
 <title>회원가입</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 	<h1>회원 가입</h1>
 	<div>
 		<form id="userAddForm">
 			<div>
-				<table>
+				<table class="table">
 					<tr>
-						<td>
+						<td class="">
 							<span>*</span><span>회원 아이디</span>
 						</td>
 						<td>
 							<span><input type="text" id="userId" name="userId"/></span>
+							<span><input type="button" id="idDupCheck" class="btn btn-primary btn-xs" value="중복체크"/></span>
 							<span id="userIdHelper"></span>
 						</td>
 					</tr>
@@ -84,7 +86,7 @@ URL : user/user_add
 							<span>주소</span>
 						</td>
 						<td>
-							<span><input type="text" id="userAddress" name="userAddress"/></span>
+							<span><textarea id="userAddress" name="userAddress" rows="2" cols="40"></textarea></span>
 							<span id="userAddressHelper"></span>
 						</td>
 					</tr>
@@ -92,10 +94,10 @@ URL : user/user_add
 			</div>
 			<div>
 				<span>
-					<input type="button" id="btnUserAdd" value="확인"/>
+					<input type="button" id="btnUserAdd" class="btn btn-primary btn-xs" value="확인"/>
 				</span>
 				<span>
-					<input type="button" id="btnCancel" value="취소"/>
+					<input type="button" id="btnCancel" class="btn btn-primary btn-xs" value="취소"/>
 				</span>
 			</div>
 		</form>

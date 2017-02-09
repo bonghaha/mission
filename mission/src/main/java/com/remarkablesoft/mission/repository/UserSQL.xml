@@ -1,10 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.remarkablesoft.mission.repository.UserSQL">
+
+	<!-- 아이디 중복체크 -->
+	<select id="idDupCheck" parameterType="com.remarkablesoft.mission.user.vo.UserInfo" resultType="String">
+		SELECT
+			count(*)
+		FROM
+			USER
+		WHERE
+			user_id = #{userId};
+	</select>
 	
+	<!-- 회원가입 -->
 	<insert id="userAdd" parameterType="com.remarkablesoft.mission.user.vo.UserInfo">
 		INSERT INTO USER (
-			user_id
+			user_code
+			,user_id
 			,user_pw
 			,user_name
 			,user_birthday
@@ -16,7 +28,8 @@
 			,user_address
 		)
 		VALUES (
-			#{userId}
+			#{userCode}
+			,#{userId}
 			,#{userPw}
 			,#{userName}
 			,#{userBirthday}
@@ -29,6 +42,16 @@
 		)
 	</insert>
 	
+	<!-- 최신등록한 유저의 주키 가져오기 -->
+	<select id="getUserLastKey" resultType="String">
+		SELECT 
+			user_code
+		FROM 
+			USER
+		ORDER BY LENGTH(user_code) DESC, user_code DESC LIMIT 1;
+	</select>
+	
+	<!-- 회원 상세보기 -->
 	<select id="userView" parameterType="com.remarkablesoft.mission.user.vo.UserInfo" resultType="com.remarkablesoft.mission.user.vo.UserInfo">
 		SELECT 
 			user_id			AS userId
@@ -45,6 +68,7 @@
 			user_id = #{userId}
 	</select>
 	
+	<!-- 로그인 시 아이디와 비밀번호 체크 -->
 	<select id="checkUser" parameterType="com.remarkablesoft.mission.user.vo.UserInfo" resultType="com.remarkablesoft.mission.user.vo.UserInfo">
 		SELECT
 			user_id	AS userId
